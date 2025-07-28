@@ -1,6 +1,5 @@
 const fs = require('fs');
 
-// Function to convert a number from any base to decimal (handles large numbers)
 function baseToDecimal(value, base) {
     let result = 0n;
     const baseBig = BigInt(base);
@@ -46,8 +45,7 @@ function solve(testCase) {
     const { keys } = testCase;
     const n = keys.n;
     const k = keys.k;
-    
-    // console.log(`\nSolving test case with n=${n}, k=${k}`);
+
     const points = [];
     
     for (let i = 1; i <= n; i++) {
@@ -58,8 +56,7 @@ function solve(testCase) {
             
             const y = baseToDecimal(value, base);
             points.push([x, y]);
-            
-            // console.log(`Point ${i}: x=${x}, y=${y} (decoded from "${value}" in base ${base})`);
+           
         }
     }
     const secret = lagrange(points, k);
